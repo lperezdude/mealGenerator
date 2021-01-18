@@ -1,5 +1,5 @@
 import React from 'react'
-
+import DeleteIcon from '../../icons/remove_circle_outline-black-18dp.svg'
 export default function MealComponentCard({mealComponent, deletedCallBack,toggle}) {
     const deleteMealComponent = async () => {
         try {
@@ -15,9 +15,10 @@ export default function MealComponentCard({mealComponent, deletedCallBack,toggle
     }
     return (
         <div className="p-5 bg-gray-50 transition-shadow border rounded-lg mt-4 shadow-sm hover:shadow-lg" onClick={toggle}>
-            <div className="flex items-start justify-between">
-                <div className="flex flex-col space-y-2">
+            <div className="flex items-start w-full justify-between">
+                <div className="flex justify-between w-full  space-y-2">
                     <span className={"text-xl"}>Name: {mealComponent.data.name}</span>
+                    <DeleteIcon onClick={()=>{deleteMealComponent()}} className={"cursor-pointer"}/>
                 </div>
             </div>
             {mealComponent.data.ingredients && mealComponent.data.ingredients.map((ingredient) => {
