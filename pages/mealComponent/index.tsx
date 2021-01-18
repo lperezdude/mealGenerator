@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import MealComponentCard from '../../components/MealComponents/MealComponentCard'
 import DashboardPageLayout from "../../components/AppLayout/DashboardPageLayout";
-import useSWR from 'swr';
 import MealComponentForm from "../../components/MealComponents/MealComponentForm";
+import useSWR from 'swr';
 
 export default function Home() {
     const {data: mealComponents, mutate} = useSWR('/api/mealComponent/mealComponents');
@@ -25,7 +25,7 @@ export default function Home() {
                     <div
                         className={"cursor-pointer bg-blue-500 rounded-lg font-bold text-white px-4 py-5 text-center transition duration-300 ease-in-out hover:bg-blue-600"}
                         onClick={() => {
-                            setCurrentMealComponent()
+                            setCurrentMealComponent(undefined)
                             console.log("Create new")}}>
                         Create New Meal Component
                     </div>
