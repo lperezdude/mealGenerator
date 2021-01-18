@@ -1,9 +1,12 @@
 import Head from 'next/head';
 import Aside from "../Layout/Dashboard/Aside";
+// @ts-ignore
 import MealComponentIcon from '../../icons/kitchen-white-18dp.svg'
+// @ts-ignore
 import DashboardIcon from '../../icons/dashboard-white-18dp.svg'
-
 import Main from "../Layout/Dashboard/Main";
+
+
 
 export default function DashboardPageLayout(props) {
     const asideButtons = [
