@@ -1,40 +1,48 @@
-import Head from 'next/head';
-import MealComponent from '../../components/MealComponent'
+import React, {useState} from 'react'
+import MealComponentCard from '../../components/MealComponents/MealComponentCard'
+import DashboardPageLayout from "../../components/AppLayout/DashboardPageLayout";
 import useSWR from 'swr';
-import Link from 'next/link';
-export default function Home() {
-    const { data: snippets, mutate } = useSWR('/api/snippets');
-    return (
-        <div>
-            <Head>
-                <title>Create Next App</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+import MealComponentForm from "../../components/MealComponents/MealComponentForm";
 
-            <main className="">
-                <div className="my-12">
-                    <h1 className="text-red-100 text-2xl">
-                        Err Day Meal Components
-                    </h1>
-                    <p className="text-red-200">
-                        Create and browse snippets you use every day in Web
-                        Development!
-                    </p>
-                    <Link href="/new">
-                        <a className="mt-3 inline-block bg-red-800 hover:bg-red-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                            Create a Snippet!
-                        </a>
-                    </Link>
+export default function Home() {
+    const {data: mealComponents, mutate} = useSWR('/api/mealComponent/mealComponents');
+    const [currentMealComponent, setCurrentMealComponent] = useState();
+
+
+    return (
+        <DashboardPageLayout title={"Meal Components"}>
+            <main className="sm:h-full flex-1 flex flex-col min-h-0 min-w-0 overflow-auto grid grid-cols-2 gap-5 ">
+                <div>
+                    <div>
+                        <h1 className="text-100 text-2xl">
+                            Meal Components
+                        </h1>
+                        <p className="text-200">
+                            Create and browse snippets you use every day in Web
+                            Development!
+                        </p>
+                    </div>
+                    <div
+                        className={"cursor-pointer bg-blue-500 rounded-lg font-bold text-white px-4 py-5 text-center transition duration-300 ease-in-out hover:bg-blue-600"}
+                        onClick={() => {
+                            setCurrentMealComponent()
+                            console.log("Create new")}}>
+                        Create New Meal Component
+                    </div>
+                    {mealComponents && mealComponents.map((mealComponent) => (
+                        <MealComponentCard
+                            key={mealComponent.id}
+                            mealComponent={mealComponent}
+                            deletedCallBack={mutate}
+                            toggle={() => {
+                                setCurrentMealComponent(mealComponent)
+                            }}
+                        />))}
                 </div>
-                {snippets &&
-                snippets.map((snippet) => (
-                    <MealComponent
-                        key={snippet.id}
-                        snippet={snippet}
-                        snippetDeleted={mutate}
-                    />
-                ))}
+                <div className={"border h-full w-full lg:flex-1 px-3 min-h-0 min-w-0"}>
+                    <MealComponentForm mealComponent={currentMealComponent}/>
+                </div>
             </main>
-        </div>
+        </DashboardPageLayout>
     );
 }
