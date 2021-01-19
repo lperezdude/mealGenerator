@@ -1,12 +1,12 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import MealComponentCard from '../../components/MealComponents/MealComponentCard'
 import DashboardPageLayout from "../../components/AppLayout/DashboardPageLayout";
 import MealComponentForm from "../../components/MealComponents/MealComponentForm";
 import useSWR from 'swr';
 
 export default function Home() {
-    const {data: mealComponents, mutate} = useSWR('/api/mealComponent/mealComponents');
-    const [currentMealComponent, setCurrentMealComponent] = useState();
+    const { data: mealComponents, mutate } = useSWR('/api/mealComponent/mealComponents');
+    const [currentMealComponent, setCurrentMealComponent] = useState(undefined);
 
 
     return (
@@ -24,23 +24,24 @@ export default function Home() {
                     </div>
                     <div
                         className={"cursor-pointer bg-blue-500 rounded-lg font-bold text-white px-4 py-5 text-center transition duration-300 ease-in-out hover:bg-blue-600"}
-                        onClick={() => {
-                            setCurrentMealComponent(undefined)
-                            console.log("Create new")}}>
+                        onClick={() => { setCurrentMealComponent(undefined) }}>
                         Create New Meal Component
                     </div>
                     {mealComponents && mealComponents.map((mealComponent) => (
                         <MealComponentCard
                             key={mealComponent.id}
                             mealComponent={mealComponent}
-                            deletedCallBack={mutate}
+                            deletedCallBack={() => {
+                                setCurrentMealComponent(undefined)
+                                mutate()
+                            }}
                             toggle={() => {
                                 setCurrentMealComponent(mealComponent)
                             }}
                         />))}
                 </div>
                 <div className={"border h-full w-full lg:flex-1 px-3 min-h-0 min-w-0"}>
-                    <MealComponentForm mealComponent={currentMealComponent}/>
+                    <MealComponentForm mealComponent={currentMealComponent} />
                 </div>
             </main>
         </DashboardPageLayout>

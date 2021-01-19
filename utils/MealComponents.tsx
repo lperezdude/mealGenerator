@@ -26,18 +26,18 @@ const getMealComponentById = async (id) => {
     return mealComponent;
 };
 
-const createMealComponent = async (name, type, ingredients) => {
+const createMealComponent = async (name, ingredients) => {
     return await faunaClient.query(
         q.Create(q.Collection('mealComponents'), {
-            data: { name, type, ingredients },
+            data: { name, ingredients },
         })
     );
 };
 
-const updateMealComponent = async (id, name, type, ingredients) => {
+const updateMealComponent = async (id, name, ingredients) => {
     return await faunaClient.query(
         q.Update(q.Ref(q.Collection('mealComponents'), id), {
-            data: { name, type, ingredients },
+            data: { name, ingredients },
         })
     );
 };

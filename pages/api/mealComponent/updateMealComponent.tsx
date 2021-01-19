@@ -1,3 +1,4 @@
+// @ts-ignore
 import {updateMealComponent} from '../../../utils/MealComponents';
 
 export default async function handler(req, res) {
@@ -5,11 +6,11 @@ export default async function handler(req, res) {
         return res.status(405).json({msg: 'Method not allowed'});
     }
 
-    const {id, name, type, ingredients} = req.body;
+    const {id, name, ingredients} = req.body;
 
     try {
         const updated = await updateMealComponent(
-            id, name, type, ingredients
+            id, name, ingredients
         );
         return res.status(200).json(updated);
     } catch (err) {

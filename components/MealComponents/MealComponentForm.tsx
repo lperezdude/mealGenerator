@@ -1,9 +1,15 @@
 import React, {useEffect} from 'react'
 import {useFieldArray, useForm} from 'react-hook-form';
+// @ts-ignore
 import PlusIcon from '../../icons/add_circle_outline-black-18dp.svg'
+// @ts-ignore
 import DeleteIcon from '../../icons/delete-black-18dp.svg'
+import { useRouter } from 'next/router'
+
+
 
 export default function MealComponentForm({mealComponent}) {
+    const router = useRouter()
     const {register, handleSubmit, errors,setValue,control} = useForm({
         defaultValues: {
             name: mealComponent ? mealComponent.data.name : '',
@@ -16,18 +22,19 @@ export default function MealComponentForm({mealComponent}) {
         // keyName: "id", default to "id", you can change the key name
     });
     useEffect(()=>{
-        if(mealComponent){
+        console.log('Updating ingredietns')
+        if(mealComponent!==undefined){
             setValue("name",mealComponent.data.name)
             setValue("ingredients",mealComponent.data.ingredients)
         }else{
-
+            setValue("name",'')
+            setValue("ingredients",[])
         }
     },[mealComponent])
 
     const addNewIngredient = () =>{
-        append({name:''.name,type:''})
+        append({name:'',type:''})
     }
-
 
     const createMealComponent = async (data) => {
         const {name, ingredients} = data;
@@ -46,12 +53,12 @@ export default function MealComponentForm({mealComponent}) {
     };
 
     const updateMealComponent = async (data) => {
-        const {code, language, description, name} = data;
+        const {name, ingredients} = data;
         const id = mealComponent.id;
         try {
-            await fetch('/api/updateMealComponent', {
+            await fetch('/api/mealComponent/updateMealComponent', {
                 method: 'PUT',
-                body: JSON.stringify({code, language, description, name, id}),
+                body: JSON.stringify({name,ingredients,id}),
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -109,9 +116,9 @@ export default function MealComponentForm({mealComponent}) {
                         <DeleteIcon onClick={()=>{remove(index)}} className={"size mt-4 mr-4"} style={{width:'25px',height:'25px', cursor:'pointer'}}/>
                     </div>
                 ))}
-                {errors.language && (
+                {errors.ingredients && (
                     <p className="font-bold text-900">
-                        Language is required
+                        Ingredietns are Required
                     </p>
                 )}
             </div>
