@@ -137,10 +137,10 @@ export default function MealComponentForm({ mealComponent, listReFetch }) {
                 <PlusIcon className={"size"} style={{ width: '25px', height: '25px', cursor: 'pointer' }} />
             </div>
             <button
-                className="bg-green-500 text-white hover:bg-900 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-2"
+                className="bg-green-500 text-white transition duration-300 ease-in-out  hover:bg-green-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-2"
                 type="submit"
             >
-                Save
+                {mealComponent?"Update":"Create"}
             </button>
         </form>
     )
