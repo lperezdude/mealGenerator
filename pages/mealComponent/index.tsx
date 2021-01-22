@@ -8,6 +8,7 @@ export default function Home() {
     const { data: mealComponents, mutate } = useSWR('/api/mealComponent/mealComponents');
     const [currentMealComponent, setCurrentMealComponent] = useState(undefined);
 
+    
 
     return (
         <DashboardPageLayout title={"Meal Components"}>
@@ -41,7 +42,7 @@ export default function Home() {
                         />))}
                 </div>
                 <div className={"border h-full w-full lg:flex-1 px-3 min-h-0 min-w-0"}>
-                    <MealComponentForm mealComponent={currentMealComponent} />
+                    <MealComponentForm mealComponent={currentMealComponent} listReFetch={()=>{mutate()}} />
                 </div>
             </main>
         </DashboardPageLayout>

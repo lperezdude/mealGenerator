@@ -16,7 +16,6 @@ const getMealComponents = async () => {
         return mealComponent;
     });
 };
-
 const getMealComponentById = async (id) => {
     const mealComponent = await faunaClient.query(
         q.Get(q.Ref(q.Collection('mealComponents'), id))
