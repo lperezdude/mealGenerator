@@ -1,3 +1,4 @@
+// @ts-ignore
 const faunadb = require('faunadb');
 const faunaClient = new faunadb.Client({ secret: process.env.FAUNA_SECRET });
 const q = faunadb.query;
@@ -15,7 +16,6 @@ const getMealComponents = async () => {
         return mealComponent;
     });
 };
-
 const getMealComponentById = async (id) => {
     const mealComponent = await faunaClient.query(
         q.Get(q.Ref(q.Collection('mealComponents'), id))
@@ -25,18 +25,18 @@ const getMealComponentById = async (id) => {
     return mealComponent;
 };
 
-const createMealComponent = async (name, type, ingredients) => {
+const createMealComponent = async (name, ingredients) => {
     return await faunaClient.query(
         q.Create(q.Collection('mealComponents'), {
-            data: { name, type, ingredients },
+            data: { name, ingredients },
         })
     );
 };
 
-const updateMealComponent = async (id, name, type, ingredients) => {
+const updateMealComponent = async (id, name, ingredients) => {
     return await faunaClient.query(
         q.Update(q.Ref(q.Collection('mealComponents'), id), {
-            data: { name, type, ingredients },
+            data: { name, ingredients },
         })
     );
 };

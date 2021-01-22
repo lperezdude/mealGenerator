@@ -2,19 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="274a6235-e1f8-4cb1-ad0e-39212879500b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/AppLayout/DashboardPageLayout.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Layout/Dashboard/Aside.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Layout/Dashboard/AsideButton.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Layout/Dashboard/Main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Layout/Dashboard/Nav.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/MealComponents/MealComponentCard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/MealComponents/MealComponentForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/MealComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AppLayout/DashboardPageLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/AppLayout/DashboardPageLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout/Dashboard/AsideButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Dashboard/AsideButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/MealComponents/MealComponentCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/MealComponents/MealComponentCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/mealComponent/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/mealComponent/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/MealComponents.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/utils/MealComponents.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +44,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.next" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -69,6 +66,8 @@
       <option name="presentableId" value="Default" />
       <updated>1610904745346</updated>
       <workItem from="1610904746527" duration="25943000" />
+      <workItem from="1610931443612" duration="2801000" />
+      <workItem from="1611009071225" duration="767000" />
     </task>
     <servers />
   </component>
@@ -85,5 +84,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

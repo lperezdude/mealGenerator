@@ -17,8 +17,14 @@ export default function MealComponentForm({ mealComponent, listReFetch }) {
         },
     });
     const { fields, append, prepend, remove, swap, move, insert } = useFieldArray({
+<<<<<<< HEAD
         control,
         name: "ingredients",
+=======
+        control, // control props comes from useForm (optional: if you are using FormContext)
+        name: "ingredients", // unique name for your Field Array
+        // keyName: "id", default to "id", you can change the key name
+>>>>>>> 87d50d40cc4087aded11ffc9a830055573d92ea6
     });
     useEffect(() => {
         console.log('Updating ingredietns')
