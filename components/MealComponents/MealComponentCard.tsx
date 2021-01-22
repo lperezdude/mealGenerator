@@ -1,4 +1,5 @@
 import React from 'react'
+// @ts-ignore
 import DeleteIcon from '../../icons/remove_circle_outline-black-18dp.svg'
 export default function MealComponentCard({mealComponent, deletedCallBack,toggle}) {
     const deleteMealComponent = async () => {

@@ -1,4 +1,5 @@
 import React from 'react'
+// @ts-ignore
 import DefaultIcon from '../../../icons/insert_emoticon-white-18dp.svg'
 export default function AsideButton({button}) {
     return (

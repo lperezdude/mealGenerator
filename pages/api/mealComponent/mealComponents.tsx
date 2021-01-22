@@ -1,3 +1,4 @@
+// @ts-ignore
 import { getMealComponents } from '../../../utils/MealComponents';
 export default async function handler(req, res) {
     if (req.method !== 'GET') {

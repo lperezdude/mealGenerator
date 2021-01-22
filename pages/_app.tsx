@@ -1,10 +1,11 @@
 import "tailwindcss/tailwind.css";
+import { ChakraProvider } from "@chakra-ui/react"
 
 function MyApp({ Component, pageProps }) {
   return (
-      <div className="w-full p-10 min-h-screen">
+      <ChakraProvider>
           <Component {...pageProps} />
-      </div>
+      </ChakraProvider>
   );
 }
 
